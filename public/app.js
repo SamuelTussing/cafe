@@ -259,23 +259,23 @@ function renderOrderItems() {
 
 function getMilkLabel(milk) {
   const labels = {
-    regular: 'Lait entier',
-    skimmed: 'Lait écrémé',
-    oat: 'Lait d\'avoine',
-    almond: 'Lait d\'amande',
-    soy: 'Lait de soja'
+    regular: 'Normal Milk',
+    skimmed: 'Skimmed Milk',
+    oat: 'Oat Milk',
+    almond: 'Almond Milk',
+    soy: 'Soy Milk '
   };
   return labels[milk] || milk;
 }
 
 function getExtraLabel(extra) {
   const labels = {
-    extraShot: 'Shot suppl.',
-    vanilla: 'Vanille',
+    extraShot: 'Extra Shot',
+    vanilla: 'Vanilla',
     caramel: 'Caramel',
-    hazelnut: 'Noisette',
+    hazelnut: 'Hazelnut',
     chocolate: 'Chocolat',
-    whippedCream: 'Crème fouettée'
+    whippedCream: 'Whipped Cream'
   };
   return labels[extra] || extra;
 }
@@ -398,9 +398,9 @@ function confirmPayment() {
   const total = subtotal * 1.1;
   
   const methodLabels = {
-    cash: 'Espèces',
-    card: 'Carte bancaire',
-    contactless: 'Sans contact',
+    cash: 'Cash',
+    card: 'Card',
+    contactless: 'Contactless',
     mobile: 'Mobile'
   };
   

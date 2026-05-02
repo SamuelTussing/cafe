@@ -794,7 +794,6 @@ body {
 .menu-editor-section.hidden {
   display: none;
 }
-
 /* Responsive */
 @media (max-width: 1200px) {
   .stats-grid {
