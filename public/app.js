@@ -154,7 +154,7 @@ function renderProducts() {
   productGrid.innerHTML = categoryProducts.map(product => `
     <button class="product-btn" data-id="${product.id}">
       <span class="product-name">${product.name}</span>
-      <span class="product-price">${product.price.toFixed(2)} €</span>
+      <span class="product-price">${product.price.toFixed(2)} $</span>
     </button>
   `).join('');
   
@@ -212,7 +212,7 @@ function renderOrderItems() {
         <span class="qty-value">${item.quantity}</span>
         <button class="qty-btn" data-action="increase" data-index="${index}">+</button>
       </div>
-      <div class="order-item-price">${(item.totalPrice * item.quantity).toFixed(2)} €</div>
+      <div class="order-item-price">${(item.totalPrice * item.quantity).toFixed(2)} $</div>
       <button class="order-item-remove" data-index="${index}">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 6h18"/>
@@ -291,15 +291,15 @@ function updateTotals() {
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
   
-  subtotalEl.textContent = subtotal.toFixed(2) + ' €';
-  taxEl.textContent = tax.toFixed(2) + ' €';
-  totalAmountEl.textContent = total.toFixed(2) + ' €';
+  subtotalEl.textContent = subtotal.toFixed(2) + ' $';
+  taxEl.textContent = tax.toFixed(2) + ' $';
+  totalAmountEl.textContent = total.toFixed(2) + ' $';
   payBtn.disabled = subtotal === 0;
   
   // Update mobile total
   const mobileTotal = document.querySelector('.order-total-mobile');
   if (mobileTotal) {
-    mobileTotal.querySelector('.total-amount').textContent = total.toFixed(2) + ' €';
+    mobileTotal.querySelector('.total-amount').textContent = total.toFixed(2) + ' $';
     mobileTotal.querySelector('.btn-pay').disabled = subtotal === 0;
   }
 }
@@ -346,7 +346,7 @@ function updateModalPrice() {
   total += selectedOptions.milk.price;
   total += selectedOptions.extras.reduce((sum, e) => sum + e.price, 0);
   
-  modalTotalPrice.textContent = total.toFixed(2) + ' €';
+  modalTotalPrice.textContent = total.toFixed(2) + ' $';
 }
 
 function addItemToOrder(item) {
@@ -377,7 +377,7 @@ function openPaymentModal() {
   let subtotal = order.items.reduce((sum, item) => sum + (item.totalPrice * item.quantity), 0);
   const total = subtotal * 1.1;
   
-  paymentTotalAmount.textContent = total.toFixed(2) + ' €';
+  paymentTotalAmount.textContent = total.toFixed(2) + ' $';
   selectedPaymentMethod = null;
   
   paymentBtns.forEach(btn => btn.classList.remove('active'));
@@ -407,7 +407,7 @@ function confirmPayment() {
   // Send order to barista queue
   sendOrderToBarista(order);
   
-  successMessage.textContent = `${total.toFixed(2)} € - ${methodLabels[selectedPaymentMethod]}`;
+  successMessage.textContent = `${total.toFixed(2)} $ - ${methodLabels[selectedPaymentMethod]}`;
   document.getElementById('successOrderNumber').textContent = `Commande n°${order.id}`;
   successModal.classList.add('active');
 }
@@ -497,7 +497,7 @@ function setupMobileTotal() {
       mobileTotal = document.createElement('div');
       mobileTotal.className = 'order-total-mobile';
       mobileTotal.innerHTML = `
-        <div class="total-amount">0.00 €</div>
+        <div class="total-amount">0.00 $</div>
         <button class="btn-pay" disabled>Payer</button>
       `;
       document.querySelector('.center-content').appendChild(mobileTotal);

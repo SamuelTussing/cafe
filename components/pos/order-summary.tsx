@@ -60,7 +60,7 @@ export function OrderSummary({
                 )}
               </div>
               <span className="font-semibold text-primary text-sm whitespace-nowrap">
-                {item.totalPrice.toFixed(2)} €
+                {item.totalPrice.toFixed(2)} $
               </span>
             </div>
             <div className="flex items-center justify-between">

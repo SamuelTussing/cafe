@@ -121,18 +121,18 @@
         </div>
         <div class="order-total">
           <div class="total-row">
-            <span>Sous-total</span>
-            <span id="subtotal">0.00 €</span>
+            <span>Subtotal</span>
+            <span id="subtotal">0.00 $</span>
           </div>
           <div class="total-row">
             <span>TVA (10%)</span>
-            <span id="tax">0.00 €</span>
+            <span id="tax">0.00 $</span>
           </div>
           <div class="total-row total-final">
             <span>Total</span>
-            <span id="totalAmount">0.00 €</span>
+            <span id="totalAmount">0.00 $</span>
           </div>
-          <button class="btn-pay" id="payBtn" disabled>Payer</button>
+          <button class="btn-pay" id="payBtn" disabled>Pay</button>
         </div>
       </aside>
     </main>
@@ -157,42 +157,42 @@
           <div class="option-buttons" id="sizeOptions">
             <button class="option-btn" data-size="small" data-price="0">
               <span class="option-name">Small</span>
-              <span class="option-price">+0.00 €</span>
+              <span class="option-price">+0.00 $</span>
             </button>
             <button class="option-btn active" data-size="medium" data-price="0.50">
               <span class="option-name">Medium</span>
-              <span class="option-price">+0.50 €</span>
+              <span class="option-price">+0.50 $</span>
             </button>
             <button class="option-btn" data-size="large" data-price="1.00">
               <span class="option-name">Large</span>
-              <span class="option-price">+1.00 €</span>
+              <span class="option-price">+1.00 $</span>
             </button>
           </div>
         </div>
 
         <!-- Milk Selection -->
         <div class="option-group">
-          <h3>Type de lait</h3>
+          <h3>Milk Options</h3>
           <div class="option-buttons" id="milkOptions">
             <button class="option-btn active" data-milk="regular" data-price="0">
-              <span class="option-name">Lait entier</span>
-              <span class="option-price">+0.00 €</span>
+              <span class="option-name">Regular Milk</span>
+              <span class="option-price">+0.00 $</span>
             </button>
             <button class="option-btn" data-milk="skimmed" data-price="0">
-              <span class="option-name">Lait écrémé</span>
-              <span class="option-price">+0.00 €</span>
+              <span class="option-name">Skimmed Milk</span>
+              <span class="option-price">+0.00 $</span>
             </button>
             <button class="option-btn" data-milk="oat" data-price="0.60">
-              <span class="option-name">Lait d&apos;avoine</span>
-              <span class="option-price">+0.60 €</span>
+              <span class="option-name">Oat Milk</span>
+              <span class="option-price">+0.60 $</span>
             </button>
             <button class="option-btn" data-milk="almond" data-price="0.60">
-              <span class="option-name">Lait d&apos;amande</span>
-              <span class="option-price">+0.60 €</span>
+              <span class="option-name">Almond Milk</span>
+              <span class="option-price">+0.60 $</span>
             </button>
             <button class="option-btn" data-milk="soy" data-price="0.60">
-              <span class="option-name">Lait de soja</span>
-              <span class="option-price">+0.60 €</span>
+              <span class="option-name">Soy Milk</span>
+              <span class="option-price">+0.60 $</span>
             </button>
           </div>
         </div>
@@ -202,28 +202,28 @@
           <h3>Extras</h3>
           <div class="option-buttons extras" id="extrasOptions">
             <button class="option-btn extra-btn" data-extra="extraShot" data-price="0.50">
-              <span class="option-name">Shot supplémentaire</span>
-              <span class="option-price">+0.50 €</span>
+              <span class="option-name">Extra Shot</span>
+              <span class="option-price">+0.50 $</span>
             </button>
             <button class="option-btn extra-btn" data-extra="vanilla" data-price="0.40">
-              <span class="option-name">Sirop vanille</span>
-              <span class="option-price">+0.40 €</span>
+              <span class="option-name">Vanilla Sirup</span>
+              <span class="option-price">+0.40 $</span>
             </button>
             <button class="option-btn extra-btn" data-extra="caramel" data-price="0.40">
-              <span class="option-name">Sirop caramel</span>
-              <span class="option-price">+0.40 €</span>
+              <span class="option-name">Caramel Sirup</span>
+              <span class="option-price">+0.40 $</span>
             </button>
             <button class="option-btn extra-btn" data-extra="hazelnut" data-price="0.40">
-              <span class="option-name">Sirop noisette</span>
-              <span class="option-price">+0.40 €</span>
+              <span class="option-name">Hazelnut Sirup</span>
+              <span class="option-price">+0.40 $</span>
             </button>
             <button class="option-btn extra-btn" data-extra="chocolate" data-price="0.40">
-              <span class="option-name">Sirop chocolat</span>
-              <span class="option-price">+0.40 €</span>
+              <span class="option-name">Chocolat Sirup</span>
+              <span class="option-price">+0.40 $</span>
             </button>
             <button class="option-btn extra-btn" data-extra="whippedCream" data-price="0.50">
-              <span class="option-name">Crème fouettée</span>
-              <span class="option-price">+0.50 €</span>
+              <span class="option-name">Whipped Cream</span>
+              <span class="option-price">+0.50 $</span>
             </button>
           </div>
         </div>
@@ -231,9 +231,9 @@
       <div class="modal-footer">
         <div class="modal-price">
           <span>Prix total:</span>
-          <span id="modalTotalPrice">4.50 €</span>
+          <span id="modalTotalPrice">4.50 $</span>
         </div>
-        <button class="btn-add-to-order" id="addToOrderBtn">Ajouter à la commande</button>
+        <button class="btn-add-to-order" id="addToOrderBtn">Add to Order</button>
       </div>
     </div>
   </div>

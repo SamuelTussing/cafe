@@ -30,7 +30,7 @@ export function ProductGrid({ category, onSelectProduct }: ProductGridProps) {
                 {product.name}
               </span>
               <span className="text-primary font-semibold">
-                {product.basePrice.toFixed(2)} €
+                {product.basePrice.toFixed(2)} $
               </span>
             </button>
           ))}

@@ -28,7 +28,7 @@ export function OrderTotal({ total, itemCount, onClearOrder }: OrderTotalProps) 
       <div className="flex items-center justify-between mb-4">
         <span className="text-lg font-semibold text-foreground">Total</span>
         <span className="text-2xl font-bold text-primary">
-          {total.toFixed(2)} €
+          {total.toFixed(2)} $
         </span>
       </div>
       <button

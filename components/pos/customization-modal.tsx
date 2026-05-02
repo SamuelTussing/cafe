@@ -115,7 +115,7 @@ export function CustomizationModal({
                     <span className="block font-medium text-sm">{size.name}</span>
                     {size.price > 0 && (
                       <span className="text-xs text-muted-foreground">
-                        +{size.price.toFixed(2)} €
+                        +{size.price.toFixed(2)} $
                       </span>
                     )}
                   </button>
@@ -145,7 +145,7 @@ export function CustomizationModal({
                     <span className="block font-medium text-sm">{type.name}</span>
                     {type.price > 0 && (
                       <span className="text-xs text-muted-foreground">
-                        +{type.price.toFixed(2)} €
+                        +{type.price.toFixed(2)} $
                       </span>
                     )}
                   </button>
@@ -179,7 +179,7 @@ export function CustomizationModal({
                     <span className="block font-medium text-sm">{extra.name}</span>
                     {extra.price > 0 && (
                       <span className="text-xs text-muted-foreground">
-                        +{extra.price.toFixed(2)} €
+                        +{extra.price.toFixed(2)} $
                       </span>
                     )}
                   </button>
@@ -194,7 +194,7 @@ export function CustomizationModal({
           <div className="flex items-center justify-between mb-3">
             <span className="text-sm text-muted-foreground">Total</span>
             <span className="text-xl font-bold text-primary">
-              {calculateTotal().toFixed(2)} €
+              {calculateTotal().toFixed(2)} $
             </span>
           </div>
           <button
