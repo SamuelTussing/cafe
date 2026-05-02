@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee POS - Caisse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header with Order Tabs -->
+    <header class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+          <line x1="6" x2="6" y1="2" y2="4"/>
+          <line x1="10" x2="10" y1="2" y2="4"/>
+          <line x1="14" x2="14" y1="2" y2="4"/>
+        </svg>
+        <span>Coffee POS</span>
+      </div>
+      <div class="tabs-container">
+        <div class="tabs" id="orderTabs"></div>
+        <button class="btn-icon btn-add-tab" id="addTabBtn" title="Nouvelle commande">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+      <a href="barista.html" class="link-barista" title="Écran Barista">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span>Barista</span>
+      </a>
+      <a href="dashboard.html" class="link-admin" title="Dashboard Admin">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 3v18h18"/>
+          <path d="M18 17V9"/>
+          <path d="M13 17V5"/>
+          <path d="M8 17v-3"/>
+        </svg>
+        <span>Admin</span>
+      </a>
+    </header>
+
+    <main class="main-content">
+      <!-- Left Sidebar - Categories -->
+      <aside class="sidebar">
+        <button class="category-btn active" data-category="cafe">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+            <line x1="6" x2="6" y1="2" y2="4"/>
+            <line x1="10" x2="10" y1="2" y2="4"/>
+            <line x1="14" x2="14" y1="2" y2="4"/>
+          </svg>
+          <span>Café</span>
+        </button>
+        <button class="category-btn" data-category="breakfast">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <span>Breakfast</span>
+        </button>
+        <button class="category-btn" data-category="lunch">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+            <path d="M7 2v20"/>
+            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+          </svg>
+          <span>Lunch</span>
+        </button>
+        <button class="category-btn" data-category="soft">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"/>
+            <path d="M5 8h14"/>
+            <path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/>
+            <path d="m12 8 1-6h2"/>
+          </svg>
+          <span>Soft</span>
+        </button>
+      </aside>
+
+      <!-- Center Content -->
+      <section class="center-content">
+        <!-- Order Items -->
+        <div class="order-items">
+          <div class="order-items-header">
+            <h2>Commande en cours</h2>
+            <button class="btn-clear" id="clearOrderBtn">Vider</button>
+          </div>
+          <div class="order-items-list" id="orderItemsList">
+            <div class="empty-order">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              <p>Aucun article</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid-container">
+          <h3 class="category-title" id="categoryTitle">Café</h3>
+          <div class="product-grid" id="productGrid"></div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar - Total -->
+      <aside class="right-sidebar">
+        <div class="sidebar-placeholder">
+          <p>Zone réservée</p>
+        </div>
+        <div class="order-total">
+          <div class="total-row">
+            <span>Sous-total</span>
+            <span id="subtotal">0.00 €</span>
+          </div>
+          <div class="total-row">
+            <span>TVA (10%)</span>
+            <span id="tax">0.00 €</span>
+          </div>
+          <div class="total-row total-final">
+            <span>Total</span>
+            <span id="totalAmount">0.00 €</span>
+          </div>
+          <button class="btn-pay" id="payBtn" disabled>Payer</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Customization Modal -->
+  <div class="modal-overlay" id="customModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalProductName">Cappuccino</h2>
+        <button class="btn-close" id="closeModalBtn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Size Selection -->
+        <div class="option-group">
+          <h3>Taille</h3>
+          <div class="option-buttons" id="sizeOptions">
+            <button class="option-btn" data-size="small" data-price="0">
+              <span class="option-name">Small</span>
+              <span class="option-price">+0.00 €</span>
+            </button>
+            <button class="option-btn active" data-size="medium" data-price="0.50">
+              <span class="option-name">Medium</span>
+              <span class="option-price">+0.50 €</span>
+            </button>
+            <button class="option-btn" data-size="large" data-price="1.00">
+              <span class="option-name">Large</span>
+              <span class="option-price">+1.00 €</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Milk Selection -->
+        <div class="option-group">
+          <h3>Type de lait</h3>
+          <div class="option-buttons" id="milkOptions">
+            <button class="option-btn active" data-milk="regular" data-price="0">
+              <span class="option-name">Lait entier</span>
+              <span class="option-price">+0.00 €</span>
+            </button>
+            <button class="option-btn" data-milk="skimmed" data-price="0">
+              <span class="option-name">Lait écrémé</span>
+              <span class="option-price">+0.00 €</span>
+            </button>
+            <button class="option-btn" data-milk="oat" data-price="0.60">
+              <span class="option-name">Lait d&apos;avoine</span>
+              <span class="option-price">+0.60 €</span>
+            </button>
+            <button class="option-btn" data-milk="almond" data-price="0.60">
+              <span class="option-name">Lait d&apos;amande</span>
+              <span class="option-price">+0.60 €</span>
+            </button>
+            <button class="option-btn" data-milk="soy" data-price="0.60">
+              <span class="option-name">Lait de soja</span>
+              <span class="option-price">+0.60 €</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Extras Selection -->
+        <div class="option-group">
+          <h3>Extras</h3>
+          <div class="option-buttons extras" id="extrasOptions">
+            <button class="option-btn extra-btn" data-extra="extraShot" data-price="0.50">
+              <span class="option-name">Shot supplémentaire</span>
+              <span class="option-price">+0.50 €</span>
+            </button>
+            <button class="option-btn extra-btn" data-extra="vanilla" data-price="0.40">
+              <span class="option-name">Sirop vanille</span>
+              <span class="option-price">+0.40 €</span>
+            </button>
+            <button class="option-btn extra-btn" data-extra="caramel" data-price="0.40">
+              <span class="option-name">Sirop caramel</span>
+              <span class="option-price">+0.40 €</span>
+            </button>
+            <button class="option-btn extra-btn" data-extra="hazelnut" data-price="0.40">
+              <span class="option-name">Sirop noisette</span>
+              <span class="option-price">+0.40 €</span>
+            </button>
+            <button class="option-btn extra-btn" data-extra="chocolate" data-price="0.40">
+              <span class="option-name">Sirop chocolat</span>
+              <span class="option-price">+0.40 €</span>
+            </button>
+            <button class="option-btn extra-btn" data-extra="whippedCream" data-price="0.50">
+              <span class="option-name">Crème fouettée</span>
+              <span class="option-price">+0.50 €</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-price">
+          <span>Prix total:</span>
+          <span id="modalTotalPrice">4.50 €</span>
+        </div>
+        <button class="btn-add-to-order" id="addToOrderBtn">Ajouter à la commande</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal payment-modal">
+      <div class="modal-header">
+        <h2>Paiement</h2>
+        <button class="btn-close" id="closePaymentBtn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="payment-total">
+          <span>Total à payer</span>
+          <span id="paymentTotalAmount">0.00 €</span>
+        </div>
+        <div class="payment-methods">
+          <h3>Mode de paiement</h3>
+          <div class="payment-buttons">
+            <button class="payment-btn" data-method="cash">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M2 10h2M20 10h2M2 14h2M20 14h2"/>
+              </svg>
+              <span>Espèces</span>
+            </button>
+            <button class="payment-btn" data-method="card">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+              <span>Carte bancaire</span>
+            </button>
+            <button class="payment-btn" data-method="contactless">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"/>
+                <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"/>
+                <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"/>
+                <path d="M16.37 2a20.16 20.16 0 0 1 0 20"/>
+              </svg>
+              <span>Sans contact</span>
+            </button>
+            <button class="payment-btn" data-method="mobile">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>Mobile</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-confirm-payment" id="confirmPaymentBtn" disabled>Confirmer le paiement</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Success Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal success-modal">
+      <div class="success-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <h2>Paiement réussi !</h2>
+      <p id="successMessage">Merci pour votre commande</p>
+      <p id="successOrderNumber" class="order-number-display"></p>
+      <button class="btn-new-order" id="newOrderBtn">Nouvelle commande</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

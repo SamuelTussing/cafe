@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barista - Commandes en cours</title>
+  <link rel="stylesheet" href="barista.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Commandes en cours</h1>
+    <div class="header-info">
+      <span id="orderCount">0 commande(s)</span>
+      <span class="refresh-timer" id="refreshTimer">30s</span>
+      <button class="btn-refresh" id="refreshBtn" title="Rafraîchir">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+          <path d="M21 3v5h-5"/>
+        </svg>
+      </button>
+      <a href="index.html" class="link-caisse">Retour caisse</a>
+    </div>
+  </header>
+
+  <main class="orders-container" id="ordersContainer">
+    <div class="empty-state" id="emptyState">
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z"/>
+        <line x1="6" y1="2" x2="6" y2="4"/>
+        <line x1="10" y1="2" x2="10" y2="4"/>
+        <line x1="14" y1="2" x2="14" y2="4"/>
+      </svg>
+      <p>Aucune commande en attente</p>
+    </div>
+  </main>
+
+  <!-- Validation Modal -->
+  <div class="modal-overlay" id="validateModal">
+    <div class="modal">
+      <h2>Valider la commande</h2>
+      <p id="validateOrderNumber"></p>
+      <div class="modal-items" id="validateOrderItems"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="cancelValidateBtn">Annuler</button>
+        <button class="btn-validate" id="confirmValidateBtn">Commande prête</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="barista.js"></script>
+</body>
+</html>
